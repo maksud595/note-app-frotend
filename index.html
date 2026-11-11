@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Notes</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 860px; margin: 1.5rem auto; padding: 0 1rem; }
+    nav button, .row button { margin-right: .4rem; }
+    nav button.active { font-weight: bold; }
+    input, textarea, select { margin: .2rem .3rem .2rem 0; padding: .3rem; }
+    textarea { width: 100%; box-sizing: border-box; }
+    .item { border: 1px solid #ccc; padding: .6rem; margin: .5rem 0; border-radius: 4px; }
+    .muted { color: #666; font-size: .85em; }
+    .error { color: #b00020; }
+    .pager { margin: .8rem 0; }
+    header { display: flex; justify-content: space-between; align-items: center; }
+  </style>
+</head>
+<body>
+  <h1>Secure Notes</h1>
+  <p id="msg" class="error"></p>
+
+  <section id="auth">
+    <form id="loginForm">
+      <h3>Login</h3>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button>Login</button>
+    </form>
+    <form id="registerForm">
+      <h3>Register</h3>
+      <input name="name" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="password" type="password" placeholder="Password (min 8)" required minlength="8">
+      <input name="interests" placeholder="Interests (comma separated)">
+      <button>Register</button>
+    </form>
+  </section>
+
+  <section id="app" hidden>
+    <header>
+      <span id="who"></span>
+      <button id="logout">Logout</button>
+    </header>
+    <nav id="nav"></nav>
+    <main id="view"></main>
+  </section>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
